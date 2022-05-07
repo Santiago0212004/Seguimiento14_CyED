@@ -44,6 +44,12 @@ public class Vertex<T> {
 		this.adjacencyList = adjacencyList;
 	}
 	
-	
+	public String getAdjacency() {
+		String adjacency = "";
+		for(Vertex<T> v : adjacencyList) {
+			adjacency+=v.getValue()+" ";
+		}
+		return adjacency;
+	}
 		
 }

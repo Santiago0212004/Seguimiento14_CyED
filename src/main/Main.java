@@ -6,16 +6,26 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Graph<Integer> myGraph = new Graph<>();
+		Graph<String> myGraph = new Graph<>();
 		
-		myGraph.addVertex(1);
-		myGraph.addVertex(2,1,true);
-		myGraph.addVertex(2,1,true);
+		myGraph.addVertex("u");
+		myGraph.addVertex("x");
+		myGraph.addVertex("y");
+		myGraph.addVertex("z");
+		myGraph.addVertex("v");
+		myGraph.addEdge("u","x");
+		myGraph.addEdge("x","y");
+		myGraph.addEdge("y","z");
+		myGraph.addEdge("z","y");
+		myGraph.addEdge("y","v");
+		myGraph.addEdge("v","u");
+		
+		
 		
 		BFS(myGraph);	
 	}
 	
-	public static void BFS(Graph<Integer> graph) {
+	public static void BFS(Graph<String> graph) {
 		graph.print();
 	}
 
