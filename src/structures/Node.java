@@ -2,10 +2,12 @@ package structures;
 
 import java.util.ArrayList;
 
-public class Node {
-	public ArrayList<Node> children;
+public class Node<T> {
+	public T value;
+	public ArrayList<Node<T>> children;
 	
-	public Node() {
+	public Node(T value) {
+		this.value = value;
 		children = new ArrayList<>();
 	}
 

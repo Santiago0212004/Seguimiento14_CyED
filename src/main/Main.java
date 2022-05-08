@@ -26,8 +26,6 @@ public class Main {
 		myGraph.addEdge("y","v");
 		myGraph.addEdge("v","u");
 		
-		
-		
 		BFS(myGraph);	
 	}
 	
@@ -57,13 +55,23 @@ public class Main {
 			queue.poll();
 		}
 		
+		boolean stronglyConnected = true;
+		
 		for(Vertex<String> v : graph.getElements()) {
-			if(v.getDad()==null) {
-				v.setDad(new Vertex<String>(""));
+			if(!v.getColor().equals(Color.BLACK)) {
+				stronglyConnected = false;
 			}
-			System.out.println("\nValue: "+v.getValue()+" Color: "+v.getColor()+" Padre: "+v.getDad().getValue()+" Adjacency: ");
 		}
 		
+		if(stronglyConnected) {
+			System.out.println("Strongly connected");
+		} else {
+			System.out.println("Not strongly connected");
+		}
+		
+		
+		
 	}
+	
 
 }
