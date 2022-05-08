@@ -34,7 +34,15 @@ public class Vertex<T> {
 	public void setColor(Color color) {
 		this.color = color;
 	}
+	
 
+	public Vertex<T> getDad() {
+		return dad;
+	}
+
+	public void setDad(Vertex<T> dad) {
+		this.dad = dad;
+	}
 
 	public ArrayList<Vertex<T>> getAdjacencyList() {
 		return adjacencyList;

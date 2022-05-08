@@ -49,5 +49,17 @@ public class Graph<T extends Comparable<T>> {
 		}
 	}
 	
+	public int getSize() {
+		return graph.size();
+	}
+	
+	public Vertex<T> getElement(int i){
+		return graph.get(i);
+	}
+	
+	public ArrayList<Vertex<T>> getElements(){
+		return graph;
+	}
+	
 
 }

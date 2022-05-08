@@ -1,6 +1,12 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+
+import structures.Color;
 import structures.Graph;
+import structures.Vertex;
 
 public class Main {
 
@@ -26,7 +32,38 @@ public class Main {
 	}
 	
 	public static void BFS(Graph<String> graph) {
-		graph.print();
+		
+		
+		for(Vertex<String> v : graph.getElements()) {
+			v.setColor(Color.WHITE);
+		}
+		
+		Queue<Vertex<String>> queue = new LinkedList<>();
+		
+		
+		Vertex<String> initialVertex = graph.getElement(0);
+		initialVertex.setColor(Color.GRAY);
+		queue.offer(initialVertex);
+			
+		while(!queue.isEmpty()) {
+			queue.peek().setColor(Color.BLACK);
+			for(Vertex<String> v : queue.peek().getAdjacencyList()) {
+				if(v.getColor().equals(Color.WHITE)) {
+					v.setColor(Color.GRAY);
+					v.setDad(queue.peek());
+					queue.offer(v);
+				}	
+			}
+			queue.poll();
+		}
+		
+		for(Vertex<String> v : graph.getElements()) {
+			if(v.getDad()==null) {
+				v.setDad(new Vertex<String>(""));
+			}
+			System.out.println("\nValue: "+v.getValue()+" Color: "+v.getColor()+" Padre: "+v.getDad().getValue()+" Adjacency: ");
+		}
+		
 	}
 
 }
