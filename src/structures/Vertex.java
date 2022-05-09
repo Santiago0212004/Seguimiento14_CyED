@@ -9,6 +9,27 @@ public class Vertex<T> {
 	
 	ArrayList<Vertex<T>> adjacencyList;
 	
+	int d;//tiempo de descubrimiento
+	int f;//tiempo de finali
+	
+	
+	
+	public int getD() {
+		return d;
+	}
+
+	public void setD(int d) {
+		this.d = d;
+	}
+
+	public int getF() {
+		return f;
+	}
+
+	public void setF(int f) {
+		this.f = f;
+	}
+
 	public Vertex(T value) {
 		this.value = value;
 		this.dad = null;
